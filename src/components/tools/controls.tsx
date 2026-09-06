@@ -86,7 +86,7 @@ export function NumberInput({
         placeholder={placeholder}
         onChange={(event) => onChange(event.target.value)}
         className={cn(
-          "h-12 font-mono text-lg tabular md:text-xl",
+          "h-10 sm:h-12 font-mono sm:text-lg tabular md:text-xl",
           inputClassName,
         )}
       />
@@ -119,7 +119,10 @@ export function UnitSelect({
       <Select value={value} onValueChange={(next) => onChange(next as string)}>
         <SelectTrigger
           aria-label={label ?? "Unit"}
-          className={cn("h-12! w-full font-mono text-sm", triggerClassName)}
+          className={cn(
+            "h-10! sm:h-12! w-full font-mono text-sm",
+            triggerClassName,
+          )}
         >
           {/* The stored value is a unit id, so the trigger shows its label. */}
           <SelectValue>

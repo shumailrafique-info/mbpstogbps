@@ -33,13 +33,9 @@ export async function generateMetadata() {
   return pageMetadata(SLUG);
 }
 
-const FACTS = ["1 Gbps = 1,000 Mbps", "1 Mbps = 0.125 MB/s", "8 bits = 1 byte"];
-
 export default async function HomePage() {
   const content = await getPageContent(SLUG);
 
-  // The home page is itself a tool, so it describes the converter as well as
-  // the page, and lists the tools it links to.
   const schema = graph([
     {
       "@type": "WebApplication",
@@ -69,38 +65,22 @@ export default async function HomePage() {
   ]);
 
   return (
-    <div className="space-y-14">
+    <div className="space-y-8">
       <JsonLd data={schema} />
 
       {/* Hero: the managed heading over the faint signal grid. */}
-      <section className="relative -mx-4 overflow-hidden px-4 pt-10 pb-2 sm:pt-14">
+      <section className="relative -mx-4 overflow-hidden px-4 pt-6 pb-2 sm:pt-8">
         <div
           aria-hidden
           className="signal-grid pointer-events-none absolute inset-0 -z-10"
         />
 
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 font-mono text-[11px] font-medium tracking-wide text-muted-foreground">
-            <span className="size-1.5 rounded-full bg-primary" />
-            Free, instant, no sign-up
-          </p>
-
+        <div className="mx-auto max-w-4xl text-center">
           <PageContentHeader
             slug={SLUG}
-            titleClassName="text-[30px] leading-[1.12] sm:text-[40px]"
-            descriptionClassName="mx-auto text-center text-base"
-          >
-            <ul className="mt-5 flex flex-wrap items-center justify-center gap-2">
-              {FACTS.map((fact) => (
-                <li
-                  key={fact}
-                  className="rounded-md border border-border bg-card px-2.5 py-1 font-mono text-[12px] text-muted-foreground"
-                >
-                  {fact}
-                </li>
-              ))}
-            </ul>
-          </PageContentHeader>
+            titleClassName="text-[27px] leading-[1.12] sm:text-[35px]"
+            descriptionClassName="mx-auto text-center text-sm"
+          />
         </div>
       </section>
 

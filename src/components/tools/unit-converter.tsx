@@ -30,6 +30,7 @@ type UnitConverterProps = {
   defaultValue: number;
   /** One-tap starting points, in the "from" unit. */
   presets?: readonly number[];
+  classNames?: readonly string[];
   /** Rows for the reference table, in the "from" unit. */
   tableValues?: readonly number[];
   /**
