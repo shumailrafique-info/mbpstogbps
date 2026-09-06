@@ -34,7 +34,7 @@ export function GET(request: NextRequest) {
         backgroundColor: "#fbfbf9",
         // A teal band down the left keeps the card recognisable at thumbnail
         // size, where the text is too small to read.
-        borderLeft: "24px solid #17877f",
+        borderLeft: "24px solid #007e70",
         padding: "72px 80px",
       }}
     >
@@ -46,7 +46,7 @@ export function GET(request: NextRequest) {
             fontWeight: 600,
             letterSpacing: "0.14em",
             textTransform: "uppercase",
-            color: "#17877f",
+            color: "#007e70",
           }}
         >
           MbpsToGbps
@@ -60,7 +60,7 @@ export function GET(request: NextRequest) {
             fontWeight: 700,
             lineHeight: 1.1,
             letterSpacing: "-0.02em",
-            color: "#1b2321",
+            color: "#1a1a16",
           }}
         >
           {title}
@@ -72,7 +72,7 @@ export function GET(request: NextRequest) {
             marginTop: 24,
             fontSize: 30,
             lineHeight: 1.4,
-            color: "#5b6360",
+            color: "#6d6d64",
           }}
         >
           {description}
@@ -85,15 +85,15 @@ export function GET(request: NextRequest) {
             display: "flex",
             padding: "10px 20px",
             borderRadius: 999,
-            backgroundColor: "#d7ece9",
-            color: "#0f5f59",
+            backgroundColor: "#d5f3ee",
+            color: "#00443c",
             fontSize: 24,
             fontWeight: 600,
           }}
         >
           1 Gbps = 1,000 Mbps
         </div>
-        <div style={{ display: "flex", fontSize: 24, color: "#5b6360" }}>
+        <div style={{ display: "flex", fontSize: 24, color: "#6d6d64" }}>
           Free · No sign-up
         </div>
       </div>
