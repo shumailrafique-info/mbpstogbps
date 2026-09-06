@@ -75,11 +75,11 @@ export default async function HomePage() {
           className="signal-grid pointer-events-none absolute inset-0 -z-10"
         />
 
-        <div className="mx-auto max-w-4xl text-center">
+        <div className="mx-auto text-center">
           <PageContentHeader
             slug={SLUG}
             titleClassName="text-[27px] leading-[1.12] sm:text-[35px]"
-            descriptionClassName="mx-auto text-center text-sm"
+            descriptionClassName="mx-auto max-w-none text-center text-sm"
           />
         </div>
       </section>
