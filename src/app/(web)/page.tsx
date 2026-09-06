@@ -69,10 +69,10 @@ export default async function HomePage() {
       <JsonLd data={schema} />
 
       {/* Hero: the managed heading over the faint signal grid. */}
-      <section className="relative -mx-4 overflow-hidden px-4 pt-6 pb-2 sm:pt-8">
+      <section className="relative -mx-4 overflow-hidden px-4 pt-3 pb-2 sm:pt-4">
         <div
           aria-hidden
-          className="signal-grid pointer-events-none absolute inset-0 -z-10"
+          className="signal-grid -translate-y-5 pointer-events-none absolute inset-0 -z-10"
         />
 
         <div className="mx-auto text-center">
