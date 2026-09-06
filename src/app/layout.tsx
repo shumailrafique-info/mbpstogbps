@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Poppins } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import { JsonLd } from "@/components/seo/json-ld";
 import { Toaster } from "@/components/ui/toast";
 import { serverEnv } from "@/env/server";
@@ -9,6 +9,7 @@ import {
   ORGANIZATION_ID,
   organizationRef,
   SITE_NAME,
+  SITE_TAGLINE,
   SITE_URL,
   WEBSITE_ID,
 } from "@/lib/seo";
@@ -16,10 +17,17 @@ import { cn } from "@/lib/utils";
 import Providers from "@/providers";
 import "./globals.css";
 
-const poppins = Poppins({
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+});
+
+// Results are numbers in columns, so they get a monospace face of their own.
+const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
-  variable: "--font-sans",
+  variable: "--font-mono",
   display: "swap",
 });
 
@@ -48,8 +56,11 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#ffffff",
-  colorScheme: "light",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#fbfbf9" },
+    { media: "(prefers-color-scheme: dark)", color: "#101817" },
+  ],
+  colorScheme: "light dark",
 };
 
 const SITE_SCHEMA = graph([
@@ -58,6 +69,7 @@ const SITE_SCHEMA = graph([
     "@id": ORGANIZATION_ID,
     name: SITE_NAME,
     url: SITE_URL,
+    description: SITE_TAGLINE,
     logo: {
       "@type": "ImageObject",
       url: absoluteUrl("/logo.png"),
@@ -75,7 +87,12 @@ const SITE_SCHEMA = graph([
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={cn("h-full", poppins.variable)}>
+    <html
+      lang="en"
+      // next-themes swaps the class on this element before paint.
+      suppressHydrationWarning
+      className={cn("h-full", inter.variable, jetbrainsMono.variable)}
+    >
       <body className="flex min-h-full flex-col antialiased">
         <JsonLd data={SITE_SCHEMA} />
         <Providers>

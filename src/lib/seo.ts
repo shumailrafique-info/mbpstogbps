@@ -6,7 +6,8 @@ export type WithContext<T extends Thing> = T & {
   "@context": "https://schema.org";
 };
 
-export const SITE_NAME = "Gen Z Font Generator";
+export const SITE_NAME = "MbpsToGbps";
+export const SITE_TAGLINE = "Speed and bandwidth converters";
 
 export const SITE_URL = serverEnv.BETTER_AUTH_URL;
 

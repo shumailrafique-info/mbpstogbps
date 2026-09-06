@@ -240,7 +240,7 @@ const SortableImageItem = ({
 
   const renderPreview = () => {
     const src = file.url || (file.file && URL.createObjectURL(file.file));
-    if (!src) return <Upload className="w-8 h-8 text-gray-400" />;
+    if (!src) return <Upload className="w-8 h-8 text-muted-foreground" />;
 
     if (file.mediaType === "video") {
       return <VideoPreview src={src} className="w-full h-full object-cover" />;
@@ -263,10 +263,10 @@ const SortableImageItem = ({
       ref={setNodeRef}
       style={style}
       className={cn(
-        "relative border border-gray-200 rounded-none overflow-hidden bg-white transition-all",
+        "relative border border-border rounded-none overflow-hidden bg-card transition-all",
         over?.id === file.id &&
           !isDragging &&
-          "ring-2 ring-orange-400 bg-orange-50/10",
+          "ring-2 ring-warning bg-warning/10",
       )}
     >
       {!isDragDisabled && (
@@ -274,7 +274,7 @@ const SortableImageItem = ({
           type="button"
           {...attributes}
           {...listeners}
-          className="absolute top-1 left-1 z-10 cursor-grab active:cursor-grabbing bg-black/50 rounded p-0.5 text-white hover:text-gray-200 touch-manipulation"
+          className="absolute top-1 left-1 z-10 cursor-grab active:cursor-grabbing bg-black/50 rounded p-0.5 text-white hover:text-white/80 touch-manipulation"
           aria-label="Drag to reorder"
         >
           <GripVertical size={14} />
@@ -283,7 +283,7 @@ const SortableImageItem = ({
 
       <div
         className={cn(
-          "aspect-square bg-gray-50 flex items-center justify-center",
+          "aspect-square bg-muted flex items-center justify-center",
           PreviewItemClassName,
         )}
       >
@@ -296,7 +296,7 @@ const SortableImageItem = ({
           <LoaderIcon className="w-5 h-5 animate-spin text-white mb-2" />
           <Progress
             value={file.progress}
-            className="w-3/4 h-1 bg-gray-200 [&>div]:bg-orange-500"
+            className="w-3/4 h-1 bg-muted [&>div]:bg-warning"
           />
           <span className="text-xs text-white mt-1">{file.progress}%</span>
         </div>
@@ -305,8 +305,8 @@ const SortableImageItem = ({
       {file.status === "error" && (
         <>
           <div className="absolute inset-0 bg-black/80 flex flex-col items-center justify-center">
-            <AlertCircle className="w-6 h-6 text-red-400 mb-1" />
-            <span className="text-xs text-red-400 text-center px-2">
+            <AlertCircle className="w-6 h-6 text-destructive mb-1" />
+            <span className="text-xs text-destructive text-center px-2">
               {file.error || "Failed"}
             </span>
           </div>
@@ -314,7 +314,7 @@ const SortableImageItem = ({
             <button
               type="button"
               onClick={() => onDelete(file.id, file.key ?? "")}
-              className="bg-red-500 cursor-pointer hover:bg-red-600 rounded-full p-1 shadow-md"
+              className="bg-destructive cursor-pointer hover:bg-destructive/90 rounded-full p-1 shadow-md"
             >
               <X className="w-3 h-3 text-white" />
             </button>
@@ -333,7 +333,7 @@ const SortableImageItem = ({
           <button
             type="button"
             onClick={() => onDelete(file.id, file.key ?? "")}
-            className="bg-red-500 cursor-pointer hover:bg-red-600 rounded-full p-1 shadow-md"
+            className="bg-destructive cursor-pointer hover:bg-destructive/90 rounded-full p-1 shadow-md"
           >
             <X className="w-3 h-3 text-white" />
           </button>
@@ -342,7 +342,7 @@ const SortableImageItem = ({
 
       {file.status === "success" && (
         <div className="absolute bottom-1 right-1">
-          <CheckCircle2 className="w-4 h-4 text-green-500" />
+          <CheckCircle2 className="w-4 h-4 text-success" />
         </div>
       )}
     </div>
@@ -361,7 +361,7 @@ const ImageItem = ({
 }) => {
   const renderPreview = () => {
     const src = file.url || (file.file && URL.createObjectURL(file.file));
-    if (!src) return <Upload className="w-8 h-8 text-gray-400" />;
+    if (!src) return <Upload className="w-8 h-8 text-muted-foreground" />;
 
     if (file.mediaType === "video") {
       return <VideoPreview src={src} className="w-full h-full object-cover" />;
@@ -380,10 +380,10 @@ const ImageItem = ({
   };
 
   return (
-    <div className="relative border border-gray-200 overflow-hidden rounded-xl">
+    <div className="relative border border-border overflow-hidden rounded-xl">
       <div
         className={cn(
-          "aspect-square bg-gray-50 flex items-center justify-center",
+          "aspect-square bg-muted flex items-center justify-center",
           PreviewItemClassName,
         )}
       >
@@ -396,7 +396,7 @@ const ImageItem = ({
           <LoaderIcon className="w-5 h-5 animate-spin text-white mb-2" />
           <Progress
             value={file.progress}
-            className="w-3/4 h-1 bg-gray-200 [&>div]:bg-orange-500"
+            className="w-3/4 h-1 bg-muted [&>div]:bg-warning"
           />
           <span className="text-xs text-white mt-1">{file.progress}%</span>
         </div>
@@ -404,8 +404,8 @@ const ImageItem = ({
       {file.status === "error" && (
         <>
           <div className="absolute inset-0 bg-black/80 flex flex-col items-center justify-center">
-            <AlertCircle className="w-6 h-6 text-red-400 mb-1" />
-            <span className="text-xs text-red-400 text-center px-2">
+            <AlertCircle className="w-6 h-6 text-destructive mb-1" />
+            <span className="text-xs text-destructive text-center px-2">
               {file.error || "Failed"}
             </span>
           </div>
@@ -413,7 +413,7 @@ const ImageItem = ({
             <button
               type="button"
               onClick={() => onDelete(file.id, file.key ?? "")}
-              className="bg-red-500 cursor-pointer hover:bg-red-600 rounded-full p-1 shadow-md"
+              className="bg-destructive cursor-pointer hover:bg-destructive/90 rounded-full p-1 shadow-md"
             >
               <X className="w-3 h-3 text-white" />
             </button>
@@ -430,7 +430,7 @@ const ImageItem = ({
           <button
             type="button"
             onClick={() => onDelete(file.id, file.key ?? "")}
-            className="bg-red-500 cursor-pointer hover:bg-red-600 rounded-full p-1 shadow-md"
+            className="bg-destructive cursor-pointer hover:bg-destructive/90 rounded-full p-1 shadow-md"
           >
             <X className="w-3 h-3 text-white" />
           </button>
@@ -438,7 +438,7 @@ const ImageItem = ({
       )}
       {file.status === "success" && (
         <div className="absolute bottom-1 right-1">
-          <CheckCircle2 className="w-4 h-4 text-green-500" />
+          <CheckCircle2 className="w-4 h-4 text-success" />
         </div>
       )}
     </div>
@@ -707,8 +707,8 @@ export function MultiImageUploader({
               ? "w-fit"
               : "cursor-pointer border-2 border-dashed rounded-lg p-6 text-center transition",
             dragging
-              ? "border-orange-500 bg-orange-50/10"
-              : "border-gray-300 bg-gray-50 hover:bg-gray-100",
+              ? "border-warning bg-warning/10"
+              : "border-border bg-muted hover:bg-muted",
             triggerClassName,
           )}
         >
@@ -725,11 +725,11 @@ export function MultiImageUploader({
             children
           ) : (
             <>
-              <Upload className="mx-auto mb-2 text-gray-400" />
-              <p className="text-sm text-gray-500">
+              <Upload className="mx-auto mb-2 text-muted-foreground" />
+              <p className="text-sm text-muted-foreground">
                 Click or drag files to upload
               </p>
-              <p className="text-xs text-gray-400">
+              <p className="text-xs text-muted-foreground">
                 {finalAcceptTypes.join(", ")} up to {maxSizeMB}MB
               </p>
             </>
@@ -738,7 +738,7 @@ export function MultiImageUploader({
       )}
 
       {limitReached && showLimit && (
-        <div className="text-[12px] text-orange-700 bg-orange-100 p-2 rounded-none text-center">
+        <div className="text-[12px] text-warning-foreground bg-warning/20 p-2 rounded-none text-center">
           Maximum upload limit of {maxFiles} file(s) reached
         </div>
       )}
@@ -770,10 +770,10 @@ export function MultiImageUploader({
               </SortableContext>
               <DragOverlay dropAnimation={dropAnimation}>
                 {activeFile && (
-                  <div className="relative border border-orange-500 rounded-none overflow-hidden bg-white shadow-2xl scale-105">
+                  <div className="relative border border-warning rounded-none overflow-hidden bg-card shadow-2xl scale-105">
                     <div
                       className={cn(
-                        "aspect-square bg-gray-50 flex items-center justify-center",
+                        "aspect-square bg-muted flex items-center justify-center",
                         PreviewItemClassName,
                       )}
                     >

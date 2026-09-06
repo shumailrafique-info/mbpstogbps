@@ -1,5 +1,5 @@
-import { cn } from "@/lib/utils";
 import { LoaderIcon } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 type LoaderProps = {
   text?: string;

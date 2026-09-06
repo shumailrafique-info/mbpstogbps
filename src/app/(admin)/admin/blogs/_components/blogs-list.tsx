@@ -22,11 +22,11 @@ function StatusBadge({ status }: { status: BlogType["status"] }) {
   return (
     <span
       className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-medium ${
-        published ? "bg-blue-50 text-blue-700" : "bg-slate-100 text-slate-600"
+        published ? "bg-accent text-primary" : "bg-muted text-muted-foreground"
       }`}
     >
       <span
-        className={`size-1.5 rounded-full ${published ? "bg-blue-600" : "bg-slate-400"}`}
+        className={`size-1.5 rounded-full ${published ? "bg-primary" : "bg-muted-foreground"}`}
       />
       {published ? "Published" : "Draft"}
     </span>
@@ -47,12 +47,12 @@ const BlogsList = () => {
 
   return (
     <div className="w-full">
-      <div className="flex flex-wrap items-end justify-between gap-4 border-b border-slate-200 px-6 py-6 sm:px-8">
+      <div className="flex flex-wrap items-end justify-between gap-4 border-b border-border px-6 py-6 sm:px-8">
         <div>
-          <h1 className="text-2xl font-semibold tracking-tight text-slate-900">
+          <h1 className="text-2xl font-semibold tracking-tight text-foreground">
             Blog posts
           </h1>
-          <p className="mt-1 text-sm text-slate-500">
+          <p className="mt-1 text-sm text-muted-foreground">
             {isPending
               ? "Loading posts…"
               : `${blogs?.length ?? 0} ${blogs?.length === 1 ? "post" : "posts"}${
@@ -71,9 +71,9 @@ const BlogsList = () => {
         </Button>
       </div>
 
-      <div className="border-b border-slate-200 px-6 py-4 sm:px-8">
+      <div className="border-b border-border px-6 py-4 sm:px-8">
         <div className="relative max-w-sm">
-          <SearchIcon className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-slate-400" />
+          <SearchIcon className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-muted-foreground" />
           <Input
             value={term}
             onChange={(event) => setTerm(event.target.value)}
@@ -86,7 +86,7 @@ const BlogsList = () => {
               type="button"
               onClick={() => setTerm("")}
               aria-label="Clear search"
-              className="absolute top-1/2 right-2 -translate-y-1/2 rounded-md p-1 text-slate-400 transition-colors hover:bg-slate-100 hover:text-slate-700"
+              className="absolute top-1/2 right-2 -translate-y-1/2 rounded-md p-1 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
             >
               <XIcon className="size-4" />
             </button>
@@ -96,8 +96,8 @@ const BlogsList = () => {
 
       <div className="px-6 py-6 sm:px-8">
         {isError ? (
-          <div className="flex flex-col items-center gap-3 rounded-lg border border-red-200 bg-red-50 px-6 py-12 text-center">
-            <p className="text-sm font-medium text-red-700">
+          <div className="flex flex-col items-center gap-3 rounded-lg border border-destructive/30 bg-destructive/10 px-6 py-12 text-center">
+            <p className="text-sm font-medium text-destructive">
               {error?.message || "Could not load blog posts."}
             </p>
             <Button variant="outline" size="sm" onClick={() => refetch()}>
@@ -119,11 +119,11 @@ const BlogsList = () => {
             ))}
           </div>
         ) : blogs.length === 0 ? (
-          <div className="flex flex-col items-center gap-2 rounded-lg border border-dashed border-slate-300 px-6 py-16 text-center">
-            <p className="text-base font-medium text-slate-900">
+          <div className="flex flex-col items-center gap-2 rounded-lg border border-dashed border-border px-6 py-16 text-center">
+            <p className="text-base font-medium text-foreground">
               {search ? "No matching posts" : "No blog posts yet"}
             </p>
-            <p className="max-w-sm text-sm text-slate-500">
+            <p className="max-w-sm text-sm text-muted-foreground">
               {search
                 ? "Nothing matched that title or slug. Try a different search."
                 : "Publish your first post and it will show up right here."}
@@ -150,21 +150,23 @@ const BlogsList = () => {
             )}
           </div>
         ) : (
-          <div className="overflow-x-auto rounded-lg border border-slate-200">
+          <div className="overflow-x-auto rounded-lg border border-border">
             <table className="w-full border-collapse text-left text-sm">
               <thead>
-                <tr className="border-b border-slate-200 bg-slate-50">
-                  <th className="px-4 py-3 font-medium text-slate-600">Post</th>
-                  <th className="px-4 py-3 font-medium text-slate-600">
+                <tr className="border-b border-border bg-muted">
+                  <th className="px-4 py-3 font-medium text-muted-foreground">
+                    Post
+                  </th>
+                  <th className="px-4 py-3 font-medium text-muted-foreground">
                     Status
                   </th>
-                  <th className="hidden px-4 py-3 font-medium text-slate-600 md:table-cell">
+                  <th className="hidden px-4 py-3 font-medium text-muted-foreground md:table-cell">
                     Published
                   </th>
-                  <th className="hidden px-4 py-3 font-medium text-slate-600 lg:table-cell">
+                  <th className="hidden px-4 py-3 font-medium text-muted-foreground lg:table-cell">
                     Updated
                   </th>
-                  <th className="px-4 py-3 text-right font-medium text-slate-600">
+                  <th className="px-4 py-3 text-right font-medium text-muted-foreground">
                     Actions
                   </th>
                 </tr>
@@ -174,7 +176,7 @@ const BlogsList = () => {
                 {blogs.map((item) => (
                   <tr
                     key={item.id}
-                    className="border-b border-slate-100 transition-colors last:border-b-0 hover:bg-blue-50/40"
+                    className="border-b border-border transition-colors last:border-b-0 hover:bg-accent/60"
                   >
                     <td className="px-4 py-3">
                       <div className="flex items-center gap-3">
@@ -183,16 +185,16 @@ const BlogsList = () => {
                           <img
                             src={item.cover_image.url}
                             alt={item.image_alt}
-                            className="h-12 w-20 shrink-0 rounded-md border border-slate-200 object-cover"
+                            className="h-12 w-20 shrink-0 rounded-md border border-border object-cover"
                           />
                         ) : (
-                          <div className="h-12 w-20 shrink-0 rounded-md border border-dashed border-slate-200 bg-slate-50" />
+                          <div className="h-12 w-20 shrink-0 rounded-md border border-dashed border-border bg-muted" />
                         )}
                         <div className="min-w-0">
-                          <p className="truncate font-medium text-slate-900">
+                          <p className="truncate font-medium text-foreground">
                             {item.title}
                           </p>
-                          <p className="truncate text-xs text-slate-500">
+                          <p className="truncate text-xs text-muted-foreground">
                             /{item.slug}
                           </p>
                         </div>
@@ -203,13 +205,13 @@ const BlogsList = () => {
                       <StatusBadge status={item.status} />
                     </td>
 
-                    <td className="hidden px-4 py-3 whitespace-nowrap text-slate-600 md:table-cell">
+                    <td className="hidden px-4 py-3 whitespace-nowrap text-muted-foreground md:table-cell">
                       {item.published_at
                         ? dateFormatter.format(new Date(item.published_at))
                         : "—"}
                     </td>
 
-                    <td className="hidden px-4 py-3 whitespace-nowrap text-slate-600 lg:table-cell">
+                    <td className="hidden px-4 py-3 whitespace-nowrap text-muted-foreground lg:table-cell">
                       {dateFormatter.format(new Date(item.updated_at))}
                     </td>
 
@@ -219,7 +221,7 @@ const BlogsList = () => {
                           nativeButton={false}
                           variant="ghost"
                           size="sm"
-                          className="text-slate-600 hover:bg-blue-50 hover:text-blue-700"
+                          className="text-muted-foreground hover:bg-accent hover:text-primary"
                           render={
                             <Link href={`/admin/blogs/edit/${item.id}`} />
                           }

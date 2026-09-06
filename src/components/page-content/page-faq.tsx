@@ -1,4 +1,4 @@
-import { Faq, FaqEntry } from "@/components/generator/faq";
+import { Faq, FaqEntry } from "@/components/tools/faq";
 import { faqHeading, parseFaqs } from "@/lib/page-content";
 import { getPageContent } from "@/server/page-content";
 

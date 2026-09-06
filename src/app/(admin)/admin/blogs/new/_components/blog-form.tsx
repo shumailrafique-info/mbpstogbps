@@ -79,7 +79,7 @@ const BlogForm = ({ blog }: { blog: BlogType | undefined }) => {
 
   return (
     <div className="p-8">
-      <h1 className="mb-6 text-2xl font-bold text-black">
+      <h1 className="mb-6 text-2xl font-bold text-foreground">
         {blog ? "Edit Blog Post" : "Create New Blog Post"}
       </h1>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-3">
@@ -99,17 +99,17 @@ const BlogForm = ({ blog }: { blog: BlogType | undefined }) => {
                   maxFiles={1}
                   showLimit={false}
                   onUploadingChange={setIsUploadingImage}
-                  triggerClassName="rounded-xl! w-full cursor-pointer bg-white hover:bg-gray-300"
+                  triggerClassName="rounded-xl! w-full cursor-pointer bg-card hover:bg-muted"
                 >
-                  <div className="flex h-56.25 w-100 cursor-pointer flex-col items-center justify-center gap-2 rounded-xl border-2 border-dashed border-gray-300 bg-white transition-all hover:border-emerald-500 hover:bg-gray-100">
-                    <UploadIcon className="size-5 text-gray-500" />
-                    <div className="text-xs font-medium text-gray-700">
-                      Image <span className="text-red-500">*</span>
+                  <div className="flex h-56.25 w-100 cursor-pointer flex-col items-center justify-center gap-2 rounded-xl border-2 border-dashed border-border bg-card transition-all hover:border-primary hover:bg-muted">
+                    <UploadIcon className="size-5 text-muted-foreground" />
+                    <div className="text-xs font-medium text-foreground">
+                      Image <span className="text-destructive">*</span>
                     </div>
                   </div>
                 </MultiImageUploader>
                 {errors.cover_image && (
-                  <p className="mt-1 text-sm text-red-600">
+                  <p className="mt-1 text-sm text-destructive">
                     {errors.cover_image.message}
                   </p>
                 )}
@@ -135,7 +135,7 @@ const BlogForm = ({ blog }: { blog: BlogType | undefined }) => {
               {fieldState.invalid && (
                 <FieldError
                   errors={[fieldState.error]}
-                  className="mt-1 text-[11px] text-red-500"
+                  className="mt-1 text-[11px] text-destructive"
                 />
               )}
             </Field>
@@ -160,7 +160,7 @@ const BlogForm = ({ blog }: { blog: BlogType | undefined }) => {
               {fieldState.invalid && (
                 <FieldError
                   errors={[fieldState.error]}
-                  className="mt-1 text-[11px] text-red-500"
+                  className="mt-1 text-[11px] text-destructive"
                 />
               )}
             </Field>
@@ -186,7 +186,7 @@ const BlogForm = ({ blog }: { blog: BlogType | undefined }) => {
               {fieldState.invalid && (
                 <FieldError
                   errors={[fieldState.error]}
-                  className="mt-1 text-[11px] text-red-500"
+                  className="mt-1 text-[11px] text-destructive"
                 />
               )}
             </Field>
@@ -210,7 +210,7 @@ const BlogForm = ({ blog }: { blog: BlogType | undefined }) => {
               {fieldState.invalid && (
                 <FieldError
                   errors={[fieldState.error]}
-                  className="mt-1 text-[11px] text-red-500"
+                  className="mt-1 text-[11px] text-destructive"
                 />
               )}
             </Field>
@@ -235,7 +235,7 @@ const BlogForm = ({ blog }: { blog: BlogType | undefined }) => {
               {fieldState.invalid && (
                 <FieldError
                   errors={[fieldState.error]}
-                  className="mt-1 text-[11px] text-red-500"
+                  className="mt-1 text-[11px] text-destructive"
                 />
               )}
             </Field>
@@ -262,7 +262,7 @@ const BlogForm = ({ blog }: { blog: BlogType | undefined }) => {
               {fieldState.invalid && (
                 <FieldError
                   errors={[fieldState.error]}
-                  className="mt-1 text-[11px] text-red-500"
+                  className="mt-1 text-[11px] text-destructive"
                 />
               )}
             </Field>
@@ -285,7 +285,7 @@ const BlogForm = ({ blog }: { blog: BlogType | undefined }) => {
               {fieldState.invalid && (
                 <FieldError
                   errors={[fieldState.error]}
-                  className="mt-1 text-[11px] text-red-500"
+                  className="mt-1 text-[11px] text-destructive"
                 />
               )}
             </Field>
@@ -318,7 +318,7 @@ const BlogForm = ({ blog }: { blog: BlogType | undefined }) => {
               {fieldState.invalid && (
                 <FieldError
                   errors={[fieldState.error]}
-                  className="mt-1 text-[11px] text-red-500"
+                  className="mt-1 text-[11px] text-destructive"
                 />
               )}
             </Field>

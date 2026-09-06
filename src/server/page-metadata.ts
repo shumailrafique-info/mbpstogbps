@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { pathForSlug } from "@/lib/page-content";
 import { getPageContent } from "./page-content";
 
-const SITE_NAME = "Gen Z Font Generator";
+const SITE_NAME = "MbpsToGbps";
 
 export function ogImagePath(title?: string, description?: string) {
   const params = new URLSearchParams();

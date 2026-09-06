@@ -48,14 +48,16 @@ const TipTapEditor = ({
   });
 
   return (
-    <div className="font-inter overflow-hidden rounded-xl border border-blue-100 dark:border-white/5">
+    <div className="font-inter overflow-hidden rounded-xl border border-border dark:border-white/5">
       {!editor ? (
         <div className="w-full py-8 text-center">
-          <span className="text-sm text-gray-500">Loading editor...</span>
+          <span className="text-sm text-muted-foreground">
+            Loading editor...
+          </span>
         </div>
       ) : (
         <>
-          <div className="flex w-full justify-start border-b border-blue-100 bg-slate-50/70 px-4 py-2 dark:border-white/5">
+          <div className="flex w-full justify-start border-b border-border bg-muted/70 px-4 py-2 dark:border-white/5">
             <TipTapMenuBar editor={editor} />
           </div>
 

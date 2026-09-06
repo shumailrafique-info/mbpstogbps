@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { GENERATORS } from "@/lib/navigation";
+import { TOOLS } from "@/lib/navigation";
 
 /** Upper bounds so a stray paste cannot bloat every statically generated page. */
 export const MAX_FAQS = 20;
@@ -13,20 +13,16 @@ export const faqItemSchema = z.object({
 export const faqsSchema = z.array(faqItemSchema).max(MAX_FAQS);
 
 /**
- * Related links may only point at generators that actually exist, so a stale or
+ * Related links may only point at tools that actually exist, so a stale or
  * crafted slug cannot be saved. The list is built from the navigation registry
- * rather than hardcoded, so it stays correct as generators change.
+ * rather than hardcoded, so it stays correct as the tools change.
  */
 export const relatedSlugsSchema = z
-  .array(
-    z.enum(
-      GENERATORS.map((generator) => generator.slug) as [string, ...string[]],
-    ),
-  )
+  .array(z.enum(TOOLS.map((tool) => tool.slug) as [string, ...string[]]))
   .max(MAX_RELATED)
   .refine(
     (slugs) => new Set(slugs).size === slugs.length,
-    "The same generator cannot be listed twice",
+    "The same tool cannot be listed twice",
   );
 
 /**

@@ -16,11 +16,11 @@ function clamp(value: string | null, max: number, fallback = "") {
 export function GET(request: NextRequest) {
   const params = request.nextUrl.searchParams;
 
-  const title = clamp(params.get("title"), 90, "Gen Z Font Generator");
+  const title = clamp(params.get("title"), 90, "MbpsToGbps");
   const description = clamp(
     params.get("description"),
     140,
-    "Turn plain text into stylish Unicode fonts you can copy and paste anywhere.",
+    "Convert internet speeds between Mbps, Gbps and MB/s, and turn them into real answers.",
   );
 
   return new ImageResponse(
@@ -31,10 +31,10 @@ export function GET(request: NextRequest) {
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
-        backgroundColor: "#ffffff",
-        // A blue band down the left keeps the card recognisable at thumbnail
+        backgroundColor: "#fbfbf9",
+        // A teal band down the left keeps the card recognisable at thumbnail
         // size, where the text is too small to read.
-        borderLeft: "24px solid #2563eb",
+        borderLeft: "24px solid #17877f",
         padding: "72px 80px",
       }}
     >
@@ -46,10 +46,10 @@ export function GET(request: NextRequest) {
             fontWeight: 600,
             letterSpacing: "0.14em",
             textTransform: "uppercase",
-            color: "#2563eb",
+            color: "#17877f",
           }}
         >
-          Gen Z Font Generator
+          MbpsToGbps
         </div>
 
         <div
@@ -60,7 +60,7 @@ export function GET(request: NextRequest) {
             fontWeight: 700,
             lineHeight: 1.1,
             letterSpacing: "-0.02em",
-            color: "#172554",
+            color: "#1b2321",
           }}
         >
           {title}
@@ -72,7 +72,7 @@ export function GET(request: NextRequest) {
             marginTop: 24,
             fontSize: 30,
             lineHeight: 1.4,
-            color: "#475569",
+            color: "#5b6360",
           }}
         >
           {description}
@@ -85,16 +85,16 @@ export function GET(request: NextRequest) {
             display: "flex",
             padding: "10px 20px",
             borderRadius: 999,
-            backgroundColor: "#dbeafe",
-            color: "#1e40af",
+            backgroundColor: "#d7ece9",
+            color: "#0f5f59",
             fontSize: 24,
             fontWeight: 600,
           }}
         >
-          150+ styles
+          1 Gbps = 1,000 Mbps
         </div>
-        <div style={{ display: "flex", fontSize: 24, color: "#64748b" }}>
-          Free · Copy and paste ready
+        <div style={{ display: "flex", fontSize: 24, color: "#5b6360" }}>
+          Free · No sign-up
         </div>
       </div>
     </div>,

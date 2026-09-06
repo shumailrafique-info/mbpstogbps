@@ -3,20 +3,11 @@ import { sql } from "drizzle-orm";
 import { MANAGED_PAGES, normalizeText } from "@/lib/page-content";
 import { db } from "../db";
 import { pageContent } from "../schema";
-import { PAGE_SEEDS_A, type PageSeed } from "./page-content-seed-data";
-import { PAGE_SEEDS_B } from "./page-content-seed-data-b";
-import { PAGE_SEEDS_C } from "./page-content-seed-data-c";
-import { PAGE_SEEDS_D } from "./page-content-seed-data-d";
+import { PAGE_SEEDS_TOOLS, type PageSeed } from "./page-content-seed-data";
 import { PAGE_SEEDS_STATIC } from "./page-content-seed-data-static";
 import { PAGE_EXTRAS } from "./page-extras-seed-data";
 
-const SEEDS: PageSeed[] = [
-  ...PAGE_SEEDS_A,
-  ...PAGE_SEEDS_STATIC,
-  ...PAGE_SEEDS_B,
-  ...PAGE_SEEDS_C,
-  ...PAGE_SEEDS_D,
-];
+const SEEDS: PageSeed[] = [...PAGE_SEEDS_TOOLS, ...PAGE_SEEDS_STATIC];
 
 function escapeHtml(value: string) {
   return value

@@ -1,1 +1,1 @@
-export const LIVE_SITE_URL = "https://genzfontgenerator.vercel.app";
+export const LIVE_SITE_URL = "https://mbpstogbps.com";

@@ -7,7 +7,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 export default function Loading() {
   return (
     <div className="w-full">
-      <div className="flex flex-wrap items-end justify-between gap-4 border-b border-slate-200 px-6 py-6 sm:px-8">
+      <div className="flex flex-wrap items-end justify-between gap-4 border-b border-border px-6 py-6 sm:px-8">
         <div className="space-y-2">
           <Skeleton className="h-8 w-40" />
           <Skeleton className="h-4 w-56" />
@@ -23,7 +23,7 @@ export default function Loading() {
           {[0, 1, 2, 3].map((card) => (
             <div
               key={card}
-              className="flex flex-col gap-3 rounded-lg border border-slate-200 p-5"
+              className="flex flex-col gap-3 rounded-lg border border-border p-5"
             >
               <div className="flex items-center justify-between">
                 <Skeleton className="h-4 w-24" />
@@ -38,7 +38,7 @@ export default function Loading() {
         <div className="grid gap-6 lg:grid-cols-3">
           <div className="lg:col-span-2">
             <Skeleton className="mb-3 h-4 w-44" />
-            <div className="divide-y divide-slate-100 rounded-lg border border-slate-200">
+            <div className="divide-y divide-border rounded-lg border border-border">
               {[0, 1, 2, 3, 4].map((row) => (
                 <div
                   key={row}
@@ -56,13 +56,13 @@ export default function Loading() {
 
           <div>
             <Skeleton className="mb-3 h-4 w-32" />
-            <div className="space-y-3 rounded-lg border border-slate-200 p-4">
+            <div className="space-y-3 rounded-lg border border-border p-4">
               <Skeleton className="h-4 w-full" />
               <Skeleton className="h-3 w-3/4" />
               <Skeleton className="h-3 w-2/3" />
               <Skeleton className="h-9 w-full" />
             </div>
-            <div className="mt-4 space-y-2 rounded-lg border border-slate-200 p-4">
+            <div className="mt-4 space-y-2 rounded-lg border border-border p-4">
               <Skeleton className="h-4 w-28" />
               <Skeleton className="h-4 w-full" />
             </div>

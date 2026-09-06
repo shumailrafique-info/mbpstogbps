@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
+import { Brand } from "@/components/layout/brand";
 import { SocialAuthButtons } from "./social-login/social-auth-buttons";
 
 const SigninPage = () => {
@@ -9,37 +10,48 @@ const SigninPage = () => {
   const redirect = searchParams.get("redirect");
 
   return (
-    <>
-      <section className="relative overflow-hidden">
-        <div className="bg-grid pointer-events-none absolute inset-0 opacity-[0.5]" />
-        <div className="pointer-events-none absolute -left-32 top-10 h-105 w-105 rounded-full bg-lime/10 blur-[120px]" />
-        <div className="pointer-events-none absolute -right-32 bottom-0 h-105 w-105 rounded-full bg-lime/10 blur-[120px]" />
+    <section className="relative flex min-h-dvh items-center justify-center overflow-hidden px-4 py-16">
+      <div
+        aria-hidden
+        className="signal-grid pointer-events-none absolute inset-0"
+      />
 
-        <div className="relative mx-auto flex max-w-xl flex-col px-6 py-20 lg:py-28">
-          {/* google button  */}
+      <div className="relative w-full max-w-sm">
+        <div className="mb-6 flex justify-center">
+          <Brand />
+        </div>
+
+        <div className="rounded-xl border border-border bg-card p-6 shadow-sm">
+          <h1 className="text-center text-xl font-semibold tracking-tight text-foreground">
+            Sign in
+          </h1>
+          <p className="mt-1.5 text-center text-[13px] text-muted-foreground">
+            Dashboard access is limited to site administrators.
+          </p>
+
           <SocialAuthButtons
-            className="w-full h-12!"
+            className="mt-6 h-11! w-full"
             redirect={redirect ?? "/admin"}
           />
-          {/* bottom  */}
-          <div className="mt-8 text-center text-sm text-muted-foreground">
-            New ?{" "}
+
+          <p className="mt-6 text-center text-sm text-muted-foreground">
+            New here?{" "}
             <Link
-              type="button"
-              href={"/sign-up"}
-              className="text-foreground underline-offset-4 transition-colors hover:text-lime hover:underline"
+              href="/sign-up"
+              className="font-medium text-primary underline-offset-4 transition-colors hover:underline"
             >
-              Start free
+              Create an account
             </Link>
-          </div>
-          <div className="mt-4 text-center font-jetbrains-mono uppercase tracking-[0.12rem] text-[10px] text-muted-foreground">
-            <Link href="/" className="hover:text-foreground">
-              ← Back to home
-            </Link>
-          </div>
+          </p>
         </div>
-      </section>
-    </>
+
+        <p className="mt-5 text-center font-mono text-[10px] tracking-[0.12em] text-muted-foreground uppercase">
+          <Link href="/" className="transition-colors hover:text-foreground">
+            &larr; Back to home
+          </Link>
+        </p>
+      </div>
+    </section>
   );
 };
 

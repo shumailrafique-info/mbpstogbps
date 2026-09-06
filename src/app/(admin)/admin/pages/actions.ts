@@ -59,7 +59,7 @@ export async function upsertPageContent(
   // public components can decide with one truthiness check.
   const faqs = parsed.data.faqs?.length ? parsed.data.faqs : null;
 
-  // Only generator pages have a related section; anything sent for another
+  // Only tool pages have a related section; anything sent for another
   // page is dropped rather than quietly stored where nothing reads it.
   const related =
     supportsRelated(parsed.data.slug) && parsed.data.related_slugs?.length

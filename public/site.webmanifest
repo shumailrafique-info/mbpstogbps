@@ -1,6 +1,6 @@
 {
-  "name": "",
-  "short_name": "",
+  "name": "MbpsToGbps - Speed and Bandwidth Tools",
+  "short_name": "MbpsToGbps",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
@@ -13,7 +13,7 @@
       "type": "image/png"
     }
   ],
-  "theme_color": "#ffffff",
-  "background_color": "#ffffff",
+  "theme_color": "#17877f",
+  "background_color": "#fbfbf9",
   "display": "standalone"
 }

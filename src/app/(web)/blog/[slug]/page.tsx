@@ -49,7 +49,7 @@ export async function generateMetadata({
     robots: { index: true, follow: true },
     openGraph: {
       type: "article",
-      siteName: "Gen Z Font Generator",
+      siteName: "MbpsToGbps",
       title,
       description,
       url,
@@ -142,13 +142,13 @@ export default async function Page({
           {post.published_at ? (
             <time
               dateTime={post.published_at.toISOString()}
-              className="text-[13px] text-slate-500"
+              className="text-[13px] text-muted-foreground"
             >
               {dateFormatter.format(post.published_at)}
             </time>
           ) : null}
 
-          <h1 className="mt-1.5 text-[26px] leading-[1.2] font-semibold tracking-tight text-blue-950 sm:text-[30px]">
+          <h1 className="mt-1.5 text-[26px] leading-[1.2] font-semibold tracking-tight text-foreground sm:text-[30px]">
             {post.title}
           </h1>
 
@@ -161,26 +161,26 @@ export default async function Page({
                   alt=""
                   width={32}
                   height={32}
-                  className="size-8 rounded-full border border-slate-200 object-cover"
+                  className="size-8 rounded-full border border-border object-cover"
                 />
               ) : (
                 <span
                   aria-hidden
-                  className="flex size-8 items-center justify-center rounded-full border border-slate-200 bg-blue-50 text-[13px] font-semibold text-blue-700"
+                  className="flex size-8 items-center justify-center rounded-full border border-border bg-accent text-[13px] font-semibold text-primary"
                 >
                   {post.author.name.charAt(0).toUpperCase()}
                 </span>
               )}
-              <span className="text-[14px] text-slate-600">
+              <span className="text-[14px] text-muted-foreground">
                 By{" "}
-                <span className="font-medium text-blue-950">
+                <span className="font-medium text-foreground">
                   {post.author.name}
                 </span>
               </span>
             </div>
           ) : null}
 
-          <p className="mt-2.5 text-[15px] leading-relaxed text-slate-600">
+          <p className="mt-2.5 text-[15px] leading-relaxed text-muted-foreground">
             {post.excerpt}
           </p>
         </header>
@@ -190,7 +190,7 @@ export default async function Page({
           <img
             src={post.cover_image.url}
             alt={post.image_alt}
-            className="mt-8 aspect-video w-full rounded-lg border border-slate-200 object-cover"
+            className="mt-8 aspect-video w-full rounded-lg border border-border object-cover"
           />
         ) : null}
 
@@ -202,8 +202,8 @@ export default async function Page({
       </article>
 
       {morePosts.length > 0 ? (
-        <section className="border-t border-slate-200 pt-8 max-w-[68ch] mx-auto">
-          <h2 className="mb-4 border-l-2 border-blue-600 pl-3 text-[17px] font-semibold tracking-tight text-blue-900">
+        <section className="border-t border-border pt-8 max-w-[68ch] mx-auto">
+          <h2 className="mb-4 border-l-2 border-primary pl-3 text-[17px] font-semibold tracking-tight text-primary">
             Read next
           </h2>
 
@@ -212,12 +212,12 @@ export default async function Page({
               <li key={item.id}>
                 <Link
                   href={`/blog/${item.slug}`}
-                  className="group block rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-4"
+                  className="group block rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4"
                 >
-                  <h3 className="text-[15px] leading-snug font-semibold text-blue-950 transition-colors group-hover:text-blue-700">
+                  <h3 className="text-[15px] leading-snug font-semibold text-foreground transition-colors group-hover:text-primary">
                     {item.title}
                   </h3>
-                  <p className="mt-1.5 line-clamp-2 text-[14px] leading-[1.7] text-slate-600">
+                  <p className="mt-1.5 line-clamp-2 text-[14px] leading-[1.7] text-muted-foreground">
                     {item.excerpt}
                   </p>
                 </Link>

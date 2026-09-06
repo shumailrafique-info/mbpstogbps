@@ -102,7 +102,7 @@ const PageContentForm = ({
       <Button
         variant="ghost"
         size="sm"
-        className="mb-4 text-slate-600 hover:bg-blue-50 hover:text-blue-700"
+        className="mb-4 text-muted-foreground hover:bg-accent hover:text-primary"
         nativeButton={false}
         render={<Link href="/admin/pages" />}
       >
@@ -112,10 +112,10 @@ const PageContentForm = ({
 
       <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-black">{page.name}</h1>
-          <p className="mt-1 text-sm text-slate-500">
+          <h1 className="text-2xl font-bold text-foreground">{page.name}</h1>
+          <p className="mt-1 text-sm text-muted-foreground">
             Anything left blank will not appear on{" "}
-            <span className="font-medium text-slate-700">{page.path}</span>.
+            <span className="font-medium text-foreground">{page.path}</span>.
           </p>
         </div>
 
@@ -126,7 +126,7 @@ const PageContentForm = ({
                 <Button
                   variant="ghost"
                   size="sm"
-                  className="text-slate-500 hover:bg-red-50 hover:text-red-600"
+                  className="text-muted-foreground hover:bg-destructive/10 hover:text-destructive"
                 />
               }
             >
@@ -136,12 +136,12 @@ const PageContentForm = ({
 
             <AlertDialogContent>
               <AlertDialogHeader>
-                <AlertDialogMedia className="bg-red-50 text-red-600">
+                <AlertDialogMedia className="bg-destructive/10 text-destructive">
                   <TriangleAlertIcon />
                 </AlertDialogMedia>
                 <AlertDialogTitle>Clear this page's content?</AlertDialogTitle>
                 <AlertDialogDescription>
-                  <span className="font-medium text-slate-900">
+                  <span className="font-medium text-foreground">
                     {page.name}
                   </span>{" "}
                   will go back to showing no title, description or content. This
@@ -156,7 +156,7 @@ const PageContentForm = ({
                 <AlertDialogAction
                   onClick={onClear}
                   disabled={isClearing}
-                  className="bg-red-600 text-white hover:bg-red-700"
+                  className="bg-destructive text-background hover:bg-destructive/90"
                 >
                   {isClearing ? (
                     <>
@@ -188,7 +188,7 @@ const PageContentForm = ({
               {fieldState.invalid && (
                 <FieldError
                   errors={[fieldState.error]}
-                  className="mt-1 text-[11px] text-red-500"
+                  className="mt-1 text-[11px] text-destructive"
                 />
               )}
             </Field>
@@ -210,7 +210,7 @@ const PageContentForm = ({
               {fieldState.invalid && (
                 <FieldError
                   errors={[fieldState.error]}
-                  className="mt-1 text-[11px] text-red-500"
+                  className="mt-1 text-[11px] text-destructive"
                 />
               )}
             </Field>
@@ -231,7 +231,7 @@ const PageContentForm = ({
               {fieldState.invalid && (
                 <FieldError
                   errors={[fieldState.error]}
-                  className="mt-1 text-[11px] text-red-500"
+                  className="mt-1 text-[11px] text-destructive"
                 />
               )}
             </Field>
@@ -253,7 +253,7 @@ const PageContentForm = ({
               {fieldState.invalid && (
                 <FieldError
                   errors={[fieldState.error]}
-                  className="mt-1 text-[11px] text-red-500"
+                  className="mt-1 text-[11px] text-destructive"
                 />
               )}
             </Field>
@@ -273,7 +273,7 @@ const PageContentForm = ({
               {fieldState.invalid && (
                 <FieldError
                   errors={[fieldState.error]}
-                  className="mt-1 text-[11px] text-red-500"
+                  className="mt-1 text-[11px] text-destructive"
                 />
               )}
             </Field>

@@ -89,7 +89,7 @@ const LinkPopover = ({
 
       <PopoverContent className="w-72">
         <label
-          className="text-xs font-medium text-slate-600"
+          className="text-xs font-medium text-muted-foreground"
           htmlFor="tiptap-link-url"
         >
           URL
@@ -109,7 +109,7 @@ const LinkPopover = ({
         />
 
         <label
-          className="text-xs font-medium text-slate-600"
+          className="text-xs font-medium text-muted-foreground"
           htmlFor="tiptap-link-rel"
         >
           Link type
@@ -123,7 +123,7 @@ const LinkPopover = ({
           <option value={DOFOLLOW_REL}>Dofollow (default)</option>
           <option value={NOFOLLOW_REL}>Nofollow </option>
         </select>
-        <p className="text-[11px] text-slate-500">
+        <p className="text-[11px] text-muted-foreground">
           Nofollow tells search engines not to pass ranking credit. Use dofollow
           only for sites you trust.
         </p>
@@ -178,7 +178,7 @@ const UrlPopover = ({
       </PopoverTrigger>
 
       <PopoverContent className="w-72">
-        <p className="text-xs font-medium text-slate-600">{label}</p>
+        <p className="text-xs font-medium text-muted-foreground">{label}</p>
         <Input
           value={url}
           autoFocus

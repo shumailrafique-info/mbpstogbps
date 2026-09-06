@@ -24,7 +24,7 @@ export async function PageContentHeader({
       {content.title ? (
         <h1
           className={cn(
-            "text-[26px] leading-[1.2] font-semibold tracking-tight text-blue-950 sm:text-[30px]",
+            "text-[26px] leading-[1.2] font-semibold tracking-tight text-foreground sm:text-[30px]",
             titleClassName,
           )}
         >
@@ -35,7 +35,7 @@ export async function PageContentHeader({
       {content.description ? (
         <p
           className={cn(
-            "mt-2.5 max-w-[62ch] text-[15px] leading-relaxed text-slate-600",
+            "mt-2.5 max-w-[64ch] text-[15px] leading-relaxed text-muted-foreground",
             descriptionClassName,
           )}
         >

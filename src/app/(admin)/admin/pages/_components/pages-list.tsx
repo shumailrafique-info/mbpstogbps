@@ -25,12 +25,12 @@ const PagesList = () => {
 
   return (
     <div className="w-full">
-      <div className="flex flex-wrap items-end justify-between gap-4 border-b border-slate-200 px-6 py-6 sm:px-8">
+      <div className="flex flex-wrap items-end justify-between gap-4 border-b border-border px-6 py-6 sm:px-8">
         <div>
-          <h1 className="text-2xl font-semibold tracking-tight text-slate-900">
+          <h1 className="text-2xl font-semibold tracking-tight text-foreground">
             Page content
           </h1>
-          <p className="mt-1 text-sm text-slate-500">
+          <p className="mt-1 text-sm text-muted-foreground">
             {isPending
               ? "Loading…"
               : `${configuredSet.size} of ${MANAGED_PAGES.length} pages have content`}
@@ -38,9 +38,9 @@ const PagesList = () => {
         </div>
       </div>
 
-      <div className="border-b border-slate-200 px-6 py-4 sm:px-8">
+      <div className="border-b border-border px-6 py-4 sm:px-8">
         <div className="relative max-w-sm">
-          <SearchIcon className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-slate-400" />
+          <SearchIcon className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-muted-foreground" />
           <Input
             value={term}
             onChange={(event) => setTerm(event.target.value)}
@@ -53,7 +53,7 @@ const PagesList = () => {
               type="button"
               onClick={() => setTerm("")}
               aria-label="Clear search"
-              className="absolute top-1/2 right-2 -translate-y-1/2 rounded-md p-1 text-slate-400 transition-colors hover:bg-slate-100 hover:text-slate-700"
+              className="absolute top-1/2 right-2 -translate-y-1/2 rounded-md p-1 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
             >
               <XIcon className="size-4" />
             </button>
@@ -63,7 +63,7 @@ const PagesList = () => {
 
       <div className="px-6 py-6 sm:px-8">
         {isError ? (
-          <div className="rounded-lg border border-red-200 bg-red-50 px-6 py-12 text-center text-sm font-medium text-red-700">
+          <div className="rounded-lg border border-destructive/30 bg-destructive/10 px-6 py-12 text-center text-sm font-medium text-destructive">
             {error?.message || "Could not load page content."}
           </div>
         ) : isPending ? (
@@ -73,19 +73,21 @@ const PagesList = () => {
             ))}
           </div>
         ) : pages.length === 0 ? (
-          <div className="rounded-lg border border-dashed border-slate-300 px-6 py-16 text-center text-sm text-slate-500">
+          <div className="rounded-lg border border-dashed border-border px-6 py-16 text-center text-sm text-muted-foreground">
             No pages match that search.
           </div>
         ) : (
-          <div className="overflow-x-auto rounded-lg border border-slate-200">
+          <div className="overflow-x-auto rounded-lg border border-border">
             <table className="w-full border-collapse text-left text-sm">
               <thead>
-                <tr className="border-b border-slate-200 bg-slate-50">
-                  <th className="px-4 py-3 font-medium text-slate-600">Page</th>
-                  <th className="px-4 py-3 font-medium text-slate-600">
+                <tr className="border-b border-border bg-muted">
+                  <th className="px-4 py-3 font-medium text-muted-foreground">
+                    Page
+                  </th>
+                  <th className="px-4 py-3 font-medium text-muted-foreground">
                     Status
                   </th>
-                  <th className="px-4 py-3 text-right font-medium text-slate-600">
+                  <th className="px-4 py-3 text-right font-medium text-muted-foreground">
                     Actions
                   </th>
                 </tr>
@@ -98,25 +100,27 @@ const PagesList = () => {
                   return (
                     <tr
                       key={page.slug}
-                      className="border-b border-slate-100 transition-colors last:border-b-0 hover:bg-blue-50/40"
+                      className="border-b border-border transition-colors last:border-b-0 hover:bg-accent/60"
                     >
                       <td className="px-4 py-3">
-                        <p className="font-medium text-slate-900">
+                        <p className="font-medium text-foreground">
                           {page.name}
                         </p>
-                        <p className="text-xs text-slate-500">{page.path}</p>
+                        <p className="text-xs text-muted-foreground">
+                          {page.path}
+                        </p>
                       </td>
 
                       <td className="px-4 py-3">
                         <span
                           className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-medium ${
                             hasContent
-                              ? "bg-blue-50 text-blue-700"
-                              : "bg-slate-100 text-slate-600"
+                              ? "bg-accent text-primary"
+                              : "bg-muted text-muted-foreground"
                           }`}
                         >
                           <span
-                            className={`size-1.5 rounded-full ${hasContent ? "bg-blue-600" : "bg-slate-400"}`}
+                            className={`size-1.5 rounded-full ${hasContent ? "bg-primary" : "bg-muted-foreground"}`}
                           />
                           {hasContent ? "Has content" : "Empty"}
                         </span>
@@ -128,7 +132,7 @@ const PagesList = () => {
                             variant="ghost"
                             size="sm"
                             type="button"
-                            className="text-slate-600 hover:bg-blue-50 hover:text-blue-700"
+                            className="text-muted-foreground hover:bg-accent hover:text-primary"
                             nativeButton={false}
                             render={<Link href={`/admin/pages/${page.slug}`} />}
                           >
@@ -140,7 +144,7 @@ const PagesList = () => {
                             variant="ghost"
                             size="icon-sm"
                             type="button"
-                            className="text-slate-500 hover:bg-blue-50 hover:text-blue-700"
+                            className="text-muted-foreground hover:bg-accent hover:text-primary"
                             render={
                               <Link
                                 href={page.path}

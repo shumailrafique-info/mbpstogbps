@@ -42,7 +42,7 @@ const DeleteBlogDialog = ({ id, title }: { id: string; title: string }) => {
             variant="ghost"
             size="icon-sm"
             aria-label={`Delete ${title}`}
-            className="text-slate-500 hover:bg-red-50 hover:text-red-600"
+            className="text-muted-foreground hover:bg-destructive/10 hover:text-destructive"
           />
         }
       >
@@ -51,12 +51,12 @@ const DeleteBlogDialog = ({ id, title }: { id: string; title: string }) => {
 
       <AlertDialogContent>
         <AlertDialogHeader>
-          <AlertDialogMedia className="bg-red-50 text-red-600">
+          <AlertDialogMedia className="bg-destructive/10 text-destructive">
             <TriangleAlertIcon />
           </AlertDialogMedia>
           <AlertDialogTitle>Delete this blog post?</AlertDialogTitle>
           <AlertDialogDescription>
-            <span className="font-medium text-slate-900">{title}</span> will be
+            <span className="font-medium text-foreground">{title}</span> will be
             permanently removed. This cannot be undone.
           </AlertDialogDescription>
         </AlertDialogHeader>
@@ -66,7 +66,7 @@ const DeleteBlogDialog = ({ id, title }: { id: string; title: string }) => {
           <AlertDialogAction
             onClick={onConfirm}
             disabled={isPending}
-            className="bg-red-600 text-white hover:bg-red-700"
+            className="bg-destructive text-background hover:bg-destructive/90"
           >
             {isPending ? (
               <>

@@ -4,9 +4,9 @@ import {
   faqsSchema,
   relatedSlugsSchema,
 } from "@/lib/validation/zod/page-content.schema";
-import { GENERATORS } from "./navigation";
+import { HOME_TOOL_SLUG, TOOLS } from "./navigation";
 
-export const HOME_SLUG = "home";
+export const HOME_SLUG = HOME_TOOL_SLUG;
 
 export type ManagedPageKind = "home" | "static" | "tool";
 
@@ -17,7 +17,7 @@ export type ManagedPage = {
   kind: ManagedPageKind;
   /**
    * When true the page has nothing of its own to show, so an empty row means
-   * the route 404s. Generator pages instead render the tool with no copy.
+   * the route 404s. Tool pages instead render the tool with no copy.
    */
   requiresContent?: boolean;
 };
@@ -55,16 +55,15 @@ export const STATIC_PAGES: readonly ManagedPage[] = [
 ];
 
 export const MANAGED_PAGES: readonly ManagedPage[] = [
-  { slug: HOME_SLUG, name: "Home", path: "/", kind: "home" },
-  ...STATIC_PAGES,
-  ...GENERATORS.map(
-    (generator): ManagedPage => ({
-      slug: generator.slug,
-      name: generator.name,
-      path: `/${generator.slug}`,
-      kind: "tool",
+  ...TOOLS.map(
+    (tool): ManagedPage => ({
+      slug: tool.slug,
+      name: tool.slug === HOME_SLUG ? "Home - Mbps to Gbps" : tool.name,
+      path: tool.path,
+      kind: tool.slug === HOME_SLUG ? "home" : "tool",
     }),
   ),
+  ...STATIC_PAGES,
 ];
 
 export function isManagedSlug(slug: string) {
@@ -79,7 +78,7 @@ export function pathForSlug(slug: string) {
   return slug === HOME_SLUG ? "/" : `/${slug}`;
 }
 
-/** Only generator pages carry a Related Generators section. */
+/** Only tool pages carry a Related Tools section. */
 export function supportsRelated(slug: string) {
   return managedPage(slug)?.kind === "tool";
 }

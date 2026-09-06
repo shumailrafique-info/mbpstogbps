@@ -1,4 +1,5 @@
 import { AppSidebar } from "@/app/(admin)/_components/app-sidebar";
+import { ModeToggle } from "@/components/layout/mode-toggle";
 import {
   SidebarInset,
   SidebarProvider,
@@ -14,9 +15,10 @@ export default async function AdminLayout({
     <SidebarProvider>
       <AppSidebar />
       <SidebarInset>
-        <header className="flex h-16 shrink-0 items-center gap-2">
-          <div className="flex items-center gap-2 px-4">
-            <SidebarTrigger className="-ml-1" />
+        <header className="flex h-16 shrink-0 items-center gap-2 px-4">
+          <SidebarTrigger className="-ml-1" />
+          <div className="ml-auto">
+            <ModeToggle />
           </div>
         </header>
         <div className="w-full grid border-t">{children}</div>

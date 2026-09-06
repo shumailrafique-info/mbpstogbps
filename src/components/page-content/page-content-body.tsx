@@ -11,10 +11,7 @@ export async function PageContentBody({ slug }: { slug: string }) {
 
   return (
     <section
-      className={cn(
-        BLOG_PROSE,
-        "border border-blue-100 bg-blue-50/60 p-5 rounded-sm",
-      )}
+      className={cn(BLOG_PROSE, "rounded-lg border border-border bg-card p-6")}
       // biome-ignore lint/security/noDangerouslySetInnerHtml: stored HTML from the admin editor
       dangerouslySetInnerHTML={{ __html: content.html }}
     />
