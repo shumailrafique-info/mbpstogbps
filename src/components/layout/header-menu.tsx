@@ -51,8 +51,8 @@ export function HeaderMenu({ groups, links }: HeaderMenuProps) {
                 </button>
               }
             />
-            <PopoverContent align="start" className="w-[26rem] p-2">
-              <p className="px-2 pt-1 pb-2 text-xs text-muted-foreground">
+            <PopoverContent align="start" className="p-2">
+              <p className="px-2 pt-1 pb-1 text-xs text-muted-foreground">
                 {group.description}
               </p>
               <ul className="grid gap-0.5">
@@ -60,7 +60,7 @@ export function HeaderMenu({ groups, links }: HeaderMenuProps) {
                   <li key={item.path}>
                     <Link
                       href={item.path}
-                      className="flex items-center justify-between gap-3 rounded-md px-2 py-2 transition-colors hover:bg-accent"
+                      className="flex items-start flex-col gap-1 rounded-md px-2 py-1 transition-colors hover:bg-accent"
                     >
                       <span className="text-sm font-medium text-foreground">
                         {item.name}

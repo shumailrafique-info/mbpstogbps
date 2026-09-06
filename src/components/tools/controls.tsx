@@ -119,7 +119,7 @@ export function UnitSelect({
       <Select value={value} onValueChange={(next) => onChange(next as string)}>
         <SelectTrigger
           aria-label={label ?? "Unit"}
-          className={cn("h-12 w-full font-mono text-sm", triggerClassName)}
+          className={cn("h-12! w-full font-mono text-sm", triggerClassName)}
         >
           {/* The stored value is a unit id, so the trigger shows its label. */}
           <SelectValue>
@@ -128,7 +128,7 @@ export function UnitSelect({
             }
           </SelectValue>
         </SelectTrigger>
-        <SelectContent className="max-h-80">
+        <SelectContent className="max-h-80 w-fit">
           <SelectGroup>
             <SelectLabel>Decimal (SI)</SelectLabel>
             {decimal.map((item) => (
