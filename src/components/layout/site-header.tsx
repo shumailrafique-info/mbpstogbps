@@ -39,7 +39,7 @@ const GROUPS: NavGroup[] = [
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-background/85 backdrop-blur-md">
+    <header className="sticky top-0 z-40 border-b border-border bg-accent/60 backdrop-blur-md">
       <div className="mx-auto flex h-14 max-w-6xl items-center gap-4 px-4">
         <Brand />
         <div className="ml-auto flex items-center gap-1">

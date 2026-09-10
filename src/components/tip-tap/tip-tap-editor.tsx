@@ -21,7 +21,8 @@ const TipTapEditor = ({
         link: {
           openOnClick: false,
           autolink: true,
-          HTMLAttributes: { rel: "noopener noreferrer nofollow" },
+          // Dofollow by default; the toolbar opts an individual link out.
+          HTMLAttributes: { rel: "noopener noreferrer" },
         },
       }),
       Youtube.configure({

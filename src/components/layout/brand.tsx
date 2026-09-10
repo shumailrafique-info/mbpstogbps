@@ -17,7 +17,7 @@ export function Brand({ className }: { className?: string }) {
       aria-label="MbpsToGbps home"
     >
       <span className="flex size-8 items-center justify-center rounded-md bg-primary text-primary-foreground shadow-sm transition-transform group-hover:-translate-y-0.5">
-        <ActivityIcon aria-hidden className="size-[18px]" strokeWidth={2.5} />
+        <ActivityIcon aria-hidden className="size-4.5" strokeWidth={2.5} />
       </span>
       <span className="font-mono text-[15px] font-bold tracking-tight text-foreground">
         Mbps<span className="text-primary">To</span>Gbps

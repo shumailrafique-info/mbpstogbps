@@ -3,10 +3,11 @@ import { CALCULATOR_TOOLS, CONVERTER_TOOLS } from "@/lib/navigation";
 import { Brand } from "./brand";
 import {
   FacebookIcon,
-  InstagramIcon,
   LinkedInIcon,
-  XIcon,
-  YouTubeIcon,
+  // Restore alongside their SOCIAL_LINKS entries below.
+  // InstagramIcon,
+  // XIcon,
+  // YouTubeIcon,
 } from "./social-icons";
 
 const SITE_LINKS = [
@@ -17,18 +18,12 @@ const SITE_LINKS = [
   { label: "Terms and Conditions", href: "/terms-and-conditions" },
 ];
 
+/**
+ * Only the profiles that exist today are linked. The rest are kept here rather
+ * than deleted so they can be switched back on with their icon import once the
+ * accounts are live.
+ */
 const SOCIAL_LINKS = [
-  {
-    label: "Instagram",
-    href: "https://www.instagram.com/mbpstogbps/",
-    Icon: InstagramIcon,
-  },
-  { label: "X", href: "https://x.com/mbpstogbps", Icon: XIcon },
-  {
-    label: "YouTube",
-    href: "https://www.youtube.com/@mbpstogbps",
-    Icon: YouTubeIcon,
-  },
   {
     label: "Facebook",
     href: "https://www.facebook.com/mbpstogbps",
@@ -36,9 +31,20 @@ const SOCIAL_LINKS = [
   },
   {
     label: "LinkedIn",
-    href: "https://www.linkedin.com/company/mbpstogbps/",
+    href: "https://www.linkedin.com/company/mbps-to-gbps/",
     Icon: LinkedInIcon,
   },
+  // {
+  //   label: "Instagram",
+  //   href: "https://www.instagram.com/mbpstogbps/",
+  //   Icon: InstagramIcon,
+  // },
+  // { label: "X", href: "https://x.com/mbpstogbps", Icon: XIcon },
+  // {
+  //   label: "YouTube",
+  //   href: "https://www.youtube.com/@mbpstogbps",
+  //   Icon: YouTubeIcon,
+  // },
 ];
 
 const COLUMN_HEADING =
@@ -48,7 +54,7 @@ const COLUMN_LINK =
 
 export function SiteFooter() {
   return (
-    <footer className="mt-20 border-t border-border bg-muted/40">
+    <footer className="mt-20 border-t border-border bg-accent/40">
       <div className="mx-auto max-w-6xl px-4 py-14">
         <div className="grid gap-10 md:grid-cols-12">
           <div className="md:col-span-4">

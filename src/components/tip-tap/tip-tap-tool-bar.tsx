@@ -50,16 +50,13 @@ const LinkPopover = ({
   const [url, setUrl] = useState("");
   const [rel, setRel] = useState(DOFOLLOW_REL);
 
-  // Seed from the existing link each time the popover opens, so editing a
-  // dofollow link does not silently turn it back into nofollow.
+  // Seed from the existing link each time the popover opens. An anchor with no
+  // rel of its own is a new link, and new links are dofollow - only an explicit
+  // nofollow already on the anchor selects nofollow.
   function onOpenChange(next: boolean) {
     if (next) {
       setUrl(currentHref);
-      setRel(
-        currentRel.includes("nofollow") || !currentRel
-          ? NOFOLLOW_REL
-          : DOFOLLOW_REL,
-      );
+      setRel(currentRel.includes("nofollow") ? NOFOLLOW_REL : DOFOLLOW_REL);
     }
     setOpen(next);
   }
@@ -121,11 +118,11 @@ const LinkPopover = ({
           className="h-9 w-full rounded-md border border-input bg-background px-2 text-sm text-foreground"
         >
           <option value={DOFOLLOW_REL}>Dofollow (default)</option>
-          <option value={NOFOLLOW_REL}>Nofollow </option>
+          <option value={NOFOLLOW_REL}>Nofollow</option>
         </select>
         <p className="text-[11px] text-muted-foreground">
-          Nofollow tells search engines not to pass ranking credit. Use dofollow
-          only for sites you trust.
+          Links are dofollow by default. Choose nofollow for sponsored,
+          user-submitted or otherwise untrusted destinations.
         </p>
 
         <Button type="button" size="sm" onClick={apply} disabled={!url.trim()}>
