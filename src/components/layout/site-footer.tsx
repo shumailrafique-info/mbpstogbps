@@ -58,7 +58,7 @@ export function SiteFooter() {
       <div className="mx-auto max-w-6xl px-4 py-14">
         <div className="grid gap-10 md:grid-cols-12">
           <div className="md:col-span-4">
-            <Brand />
+            <Brand height={34} />
 
             <p className="mt-4 max-w-[40ch] text-sm leading-relaxed text-muted-foreground">
               Straight answers about internet speed. Convert between megabits,

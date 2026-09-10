@@ -1,27 +1,53 @@
-import { ActivityIcon } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 /**
- * The wordmark. A mark plus type rather than an image file, so it stays sharp
- * and picks up the theme without a second asset for dark mode.
+ * The wordmark.
+ *
+ * The artwork is a raster, so it ships as two recoloured variants rather than
+ * one: the supplied logo is drawn in dark teal for light backgrounds, and the
+ * dark theme needs the type lifted or it disappears. Only one is ever visible,
+ * and both are tiny, so the second file costs little.
  */
-export function Brand({ className }: { className?: string }) {
+export function Brand({
+  className,
+  height = 30,
+}: {
+  className?: string;
+  /** Rendered height in pixels; the width follows the artwork's ratio. */
+  height?: number;
+}) {
+  // Intrinsic size of public/logo.png, used to keep the aspect ratio exact.
+  const width = Math.round((height * 1140) / 232);
+
   return (
     <Link
       href="/"
       className={cn(
-        "group flex shrink-0 items-center gap-2.5 rounded-md outline-none focus-visible:ring-2 focus-visible:ring-ring",
+        "flex shrink-0 items-center rounded-md outline-none focus-visible:ring-2 focus-visible:ring-ring",
         className,
       )}
       aria-label="MbpsToGbps home"
     >
-      <span className="flex size-8 items-center justify-center rounded-md bg-primary text-primary-foreground shadow-sm transition-transform group-hover:-translate-y-0.5">
-        <ActivityIcon aria-hidden className="size-4.5" strokeWidth={2.5} />
-      </span>
-      <span className="font-mono text-[15px] font-bold tracking-tight text-foreground">
-        Mbps<span className="text-primary">To</span>Gbps
-      </span>
+      <Image
+        src="/logo.png"
+        alt="MbpsToGbps"
+        width={width}
+        height={height}
+        priority
+        className="block h-auto dark:hidden"
+        style={{ width, height: "auto" }}
+      />
+      <Image
+        src="/logo-dark.png"
+        alt="MbpsToGbps"
+        width={width}
+        height={height}
+        priority
+        className="hidden h-auto dark:block"
+        style={{ width, height: "auto" }}
+      />
     </Link>
   );
 }
