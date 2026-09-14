@@ -96,7 +96,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <head>
         <meta
           name="google-site-verification"
-          content="Z0HlY3J0DPj0gS2Y15wHxXibyNR5NhQz52OLN-VswtI"
+          content="ZMbUdDIHy3k0KZmPAnZd9Szf9Mnuf_WCqmgN3Ijh0Pk"
         />
       </head>
       <body className="flex min-h-full flex-col antialiased">
