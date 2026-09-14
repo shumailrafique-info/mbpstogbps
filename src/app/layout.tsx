@@ -93,6 +93,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       suppressHydrationWarning
       className={cn("h-full", inter.variable, jetbrainsMono.variable)}
     >
+      <head>
+        <meta
+          name="google-site-verification"
+          content="Z0HlY3J0DPj0gS2Y15wHxXibyNR5NhQz52OLN-VswtI"
+        />
+      </head>
       <body className="flex min-h-full flex-col antialiased">
         <JsonLd data={SITE_SCHEMA} />
         <Providers>
